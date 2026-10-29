@@ -12,7 +12,7 @@
 <header class="top"><div class="wrap"><a class="logo" href="./"><img src="icone.png" alt="">Gestinéro</a></div></header>
 <div class="wrap"><div class="doc">
 <h1>Politique de confidentialité</h1>
-<p class="maj">Application Gestinéro – dernière mise à jour : 21 octobre 2026</p>
+<p class="maj">Application Gestinéro – dernière mise à jour : 29 octobre 2026</p>
 
 <h2>1. Qui sommes-nous ?</h2>
 <p>L'application Gestinéro est éditée par Hamid BENAMARA, entrepreneur individuel, 31 rue de l'Usine, 82100 Castelsarrasin, France (SIRET 539 314 385 00029). Il est le responsable des données traitées par l'application. Pour toute question sur vos données : <a href="mailto:contact@gestinero.fr">contact@gestinero.fr</a>.</p>
@@ -41,14 +41,30 @@
 <li>recherche d'adresses (pour reconnaître vos lieux) ;</li>
 <li>prix du carburant près de chez vous (position arrondie).</li>
 </ul>
-<p>Ces services ne reçoivent ni votre nom ni le contenu de vos trajets. Pour la recherche d'adresses, il s'agit de la Base Adresse Nationale (service de l'État) ; pour le prix du carburant, des données publiques de l'État.</p>
+<p>Ces services ne reçoivent ni votre nom ni le contenu de vos trajets. Il s'agit :</p>
+<ul>
+<li>pour la recherche d'adresses et le calcul des routes : de la Géoplateforme de l'IGN (service de l'État) et, en secours, du service d'adresses de l'État (api-adresse.data.gouv.fr) ;</li>
+<li>pour la carte : d'OpenFreeMap, qui reçoit seulement les morceaux de carte à afficher ;</li>
+<li>pour le prix du carburant : des données publiques de l'État (data.economie.gouv.fr), avec la position de votre domicile arrondie à environ 1 km, une fois par jour.</li>
+</ul>
 
 <h2>6. Activité physique</h2>
 <p>En mode Automatique, l'application utilise la reconnaissance d'activité du téléphone (en voiture, à pied…) pour savoir quand un trajet commence et se termine. Elle sert seulement à savoir si vous roulez ou si vous marchez, et elle reste sur le téléphone.</p>
 
 <h2>7. Agenda, documents et relevés</h2>
-<p>Si vous le choisissez, Gestinéro peut lire votre agenda pour reconnaître vos rendez-vous et vos horaires. Il ne le modifie jamais sans votre accord.</p>
+<p>Si vous le choisissez, Gestinéro peut lire l'agenda de votre téléphone pour reconnaître vos rendez-vous et vos horaires. Cette lecture se fait sur le téléphone, et il ne le modifie jamais sans votre accord.</p>
 <p>Les documents que vous prenez en photo (tickets, reçus, factures) et les relevés que vous importez sont lus sur votre téléphone. Ils ne nous sont jamais envoyés.</p>
+
+<h2>7 bis. Données de votre compte Google</h2>
+<p>Si vous connectez Google Agenda, Gestinéro crée dans votre compte un agenda à part, « Gestinéro », et y écrit vos cours ou rendez-vous de travail (nom, lieu, adresse, jours, heures, rappel). Gestinéro ne lit pas et ne modifie pas vos autres agendas. Si vous choisissez la copie Google Drive, Gestinéro dépose sur votre Drive un seul fichier de sauvegarde, chiffré par votre mot de passe : ni Google ni l'éditeur ne peuvent le lire. Gestinéro n'a accès qu'à ce fichier.</p>
+<p>Si vous entrez un code testeur ou un code d'accès, Gestinéro lit l'adresse e-mail de votre compte Google, uniquement pour vérifier que le code vous appartient. Elle reste sur votre téléphone.</p>
+<p>Ces données passent directement de votre téléphone à Google : elles ne sont jamais envoyées à l'éditeur, ni vendues, ni utilisées pour de la publicité, ni données à des tiers. Vous pouvez retirer l'accès à tout moment dans l'application (« Déconnecter ») ou dans votre compte Google (Sécurité › Applications tierces). L'utilisation et le transfert des informations reçues des API Google respectent les <a href="https://developers.google.com/terms/api-services-user-data-policy">Règles relatives aux données utilisateur des services d'API Google</a>, y compris les exigences d'utilisation limitée.</p>
+
+<h2>7 ter. Logiciel de facturation</h2>
+<p>Si vous reliez Gestinéro à votre logiciel de facturation (par exemple Henrri), Gestinéro y envoie directement depuis votre téléphone le contenu de vos récapitulatifs (client, dates, prestations, quantités, montants), en brouillon, avec les codes que vous avez vous-même créés dans ce logiciel. Ces codes restent sur votre téléphone. Le logiciel de facturation traite ensuite ces données selon ses propres règles.</p>
+
+<h2>7 quater. Lecture d'un planning par intelligence artificielle (option)</h2>
+<p>Si vous choisissez de faire lire la photo d'un planning par l'intelligence artificielle, cette photo est envoyée, à chaque fois avec votre accord, au service d'IA d'Anthropic, situé aux États-Unis, uniquement pour en extraire vos horaires. Ni votre nom ni votre prénom ne sont envoyés. Ce service peut garder la demande quelque temps selon ses propres règles. Si vous ne l'utilisez pas, rien n'est envoyé.</p>
 
 <h2>8. Journal du suivi</h2>
 <p>L'application tient un journal technique de son fonctionnement. Il reste sur votre téléphone et ne nous est envoyé que si vous choisissez de nous le transmettre pour une demande d'aide.</p>
@@ -58,7 +74,7 @@
 
 <h2>10. Abonnement</h2>
 <p>L'abonnement est payé par Google Play. Les informations de paiement et de votre compte Google sont gérées par Google, selon ses propres règles. Nous n'avons jamais accès à votre carte bancaire.</p>
-<p>Si vous êtes testeur, votre code testeur est fabriqué à partir de l'adresse Gmail de votre compte Google. Aucun mot de passe ne vous est demandé ni gardé.</p>
+<p>Si vous êtes testeur, votre code testeur est lié à l'adresse e-mail de votre compte Google : l'application la lit pour vérifier le code, et la garde sur votre téléphone. Aucun mot de passe ne vous est demandé ni gardé.</p>
 
 <h2>11. Sauvegardes</h2>
 <p>Une sauvegarde est un fichier chiffré par un mot de passe que vous choisissez. Elle reste dans votre téléphone, ou sur votre propre Google Drive si vous le choisissez. Nous n'y avons pas accès.</p>
