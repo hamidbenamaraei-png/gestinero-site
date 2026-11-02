@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src https://*.supabase.co; base-uri 'none'; form-action 'none'">
+<title>Gestinéro – Envoyer mes fichiers</title>
+<link rel="icon" href="icone.png">
+<style>
+:root{--nuit:#1b1640;--nuit2:#2a2160;--violet:#6a2bb0;--orange:#ee6a1f;--orange2:#f39a17;--fond:#f4f4f9;--carte:#fff;--texte:#22213a;--gris:#5c5b75;--ligne:#e3e2ef;--doux:#efeef7;--ok:#15803d;--ko:#b42318;--zone:#fbfaff}
+@media (prefers-color-scheme: dark){:root{--fond:#14122b;--carte:#1f1c3d;--texte:#f1f0fa;--gris:#b9b6d6;--ligne:#36325f;--doux:#2a2650;--ok:#4ade80;--ko:#f87171;--zone:#1a1836}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--fond);color:var(--texte);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.5}
+header{background:linear-gradient(160deg,var(--nuit) 0%,var(--nuit2) 60%,var(--violet) 100%);color:#fff}
+header .w{display:flex;align-items:center;gap:12px;min-height:64px}
+header img{width:36px;height:36px;border-radius:9px;flex:none}
+header b{font-size:21px;letter-spacing:.2px}
+.w{max-width:860px;margin:0 auto;padding:0 16px}
+main{padding:28px 0 48px}
+h1{font-size:clamp(24px,4vw,32px);line-height:1.15;margin:0 0 8px}
+.sous{color:var(--gris);margin:0 0 22px}
+.carte{background:var(--carte);border:1px solid var(--ligne);border-radius:18px;padding:22px;margin-bottom:18px}
+.etape{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+.etape .n{flex:none;width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.etape .t{flex:1;min-width:0}
+.chemin{font-weight:700}
+.code{display:flex;gap:10px;flex-wrap:wrap}
+.code input{flex:1 1 260px;min-width:0;font-size:clamp(18px,5.6vw,26px);font-family:ui-monospace,Menlo,Consolas,monospace;letter-spacing:2px;text-transform:uppercase;padding:12px 14px;border-radius:12px;border:2px solid var(--ligne);background:var(--zone);color:var(--texte)}
+.code input:focus{outline:none;border-color:var(--orange)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:12px;padding:14px 22px;font:inherit;font-weight:700;cursor:pointer;background:linear-gradient(90deg,var(--orange2),var(--orange));color:#fff;min-height:52px;white-space:nowrap}
+.btn:disabled{opacity:.6;cursor:default}
+.btn.g{background:var(--doux);color:var(--texte)}
+.btn.lien{background:none;color:var(--gris);text-decoration:underline;padding:8px;min-height:0;font-weight:600}
+.msg{margin:12px 0 0;font-weight:700}
+.msg.ko{color:var(--ko)} .msg.ok{color:var(--ok)}
+.zone{border:3px dashed var(--orange);border-radius:22px;background:var(--zone);padding:clamp(28px,6vw,56px) 20px;text-align:center;transition:background .15s,transform .15s}
+.zone.sur{background:var(--doux);transform:scale(1.01)}
+.zone .ic{font-size:54px;line-height:1}
+.zone .gros{font-size:clamp(24px,4.4vw,34px);font-weight:800;margin:10px 0 4px}
+.zone p{color:var(--gris);margin:0 0 18px}
+.liste{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.f{background:var(--carte);border:1px solid var(--ligne);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.f .nom{font-weight:700;overflow-wrap:anywhere}
+.f .etat{font-size:15px}
+.f .etat.ok{color:var(--ok);font-weight:700} .f .etat.ko{color:var(--ko);font-weight:700}
+.f .aide{font-size:14px;color:var(--gris)}
+.barre{height:8px;border-radius:99px;background:var(--doux);overflow:hidden}
+.barre i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange2),var(--orange));transition:width .2s}
+.relie{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;color:var(--gris);font-size:15px;margin-top:22px}
+.securite{color:var(--gris);font-size:15px;margin:18px 0 0}
+[hidden]{display:none!important}
+@media (max-width:560px){.carte{padding:18px}.btn{width:100%}.code .btn{flex:1 1 100%}}
+</style>
+</head>
+<body>
+<header><div class="w"><img src="icone.png" alt=""><b>Gestinéro</b></div></header>
+<main class="w">
+  <section id="vPasPret" hidden>
+    <h1>Cette page n'est pas encore prête</h1>
+    <p class="sous">Reviens un peu plus tard.</p>
+  </section>
+
+  <section id="vRelier" hidden>
+    <h1>Envoyer mes fichiers à Gestinéro</h1>
+    <p class="sous">Relie d'abord cet ordinateur à ton téléphone. C'est à faire une seule fois.</p>
+    <div class="carte">
+      <div class="etape"><div class="n">1</div><div class="t">Sur ton téléphone, ouvre <span class="chemin">Gestinéro › Réglages › 📱 Mon téléphone › 💻 Relier mon PC</span>, puis touche <span class="chemin">« Relier mon ordinateur »</span>.</div></div>
+      <div class="etape" style="margin-bottom:0"><div class="n">2</div><div class="t">Tape ici le code affiché sur ton téléphone&nbsp;:
+        <form class="code" id="fCode" style="margin-top:10px" autocomplete="off">
+          <input id="code" inputmode="text" autocapitalize="characters" spellcheck="false" maxlength="20" placeholder="XXXX-XXXX-XXXX" aria-label="Code affiché sur ton téléphone">
+          <button class="btn" id="bRelier" type="submit">Relier</button>
+        </form>
+        <p class="msg" id="mRelier" role="status" hidden></p>
+      </div></div>
+    </div>
+    <p class="securite">🔒 Tes fichiers sont chiffrés sur cet ordinateur avant d'être envoyés : personne d'autre ne peut les lire. Ils sont effacés dès qu'ils arrivent sur ton téléphone.</p>
+  </section>
+
+  <section id="vEnvoyer" hidden>
+    <h1>Envoyer mes fichiers à Gestinéro</h1>
+    <p class="sous">Relevés de compte, factures, tickets : en PDF, en photo, en Excel ou en CSV. Plusieurs à la fois si tu veux.</p>
+    <div class="zone" id="zone">
+      <div class="ic" aria-hidden="true">📥</div>
+      <div class="gros">Glisse tes fichiers ici</div>
+      <p>ou</p>
+      <button class="btn" id="bChoisir" type="button">Choisir des fichiers</button>
+      <input type="file" id="choix" multiple hidden accept=".pdf,.jpg,.jpeg,.png,.webp,.heic,.heif,.xlsx,.xls,.ods,.csv,application/pdf,image/*,text/csv">
+    </div>
+    <div class="liste" id="liste" aria-live="polite"></div>
+    <p class="securite">🔒 Chiffrés sur cet ordinateur, effacés dès leur arrivée sur ton téléphone. Ils sont rangés dans Gestinéro quand l'appli est ouverte sur ton téléphone.</p>
+    <div class="relie"><span id="tRelie">✅ Cet ordinateur est relié à ton téléphone</span><button class="btn lien" id="bDelier" type="button">Délier cet ordinateur</button></div>
+  </section>
+</main>
+<script src="config.js"></script>
+<script src="pc_commun.js"></script>
+<script src="page.js"></script>
+</body>
+</html>
