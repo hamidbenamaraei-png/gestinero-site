@@ -33,10 +33,7 @@ $('code').addEventListener('input',()=>{ const i=$('code'), s=i.value.toUpperCas
 
 // ---------- envoyer ----------
 const file=[]; let occupe=false; const attendus=new Map(); // fichier envoyé → {d: sa ligne, rid: n° de la réponse du téléphone, arrive}
-// v43 : fichiers déjà envoyés depuis cet ordinateur (empreinte SHA-256, gardée dans ce navigateur seulement)
-const CLE_ENV='gestinero-pc-envoyes';
-const envoyes=()=>{ try{ const x=JSON.parse(localStorage.getItem(CLE_ENV)||'[]'); return Array.isArray(x)?x:[] }catch(e){ return [] } };
-const noterEnvoye=h=>{ try{ const L=envoyes().filter(x=>x&&x.h!==h); L.push({h,le:Date.now()}); localStorage.setItem(CLE_ENV,JSON.stringify(L.slice(-3000))) }catch(e){} };
+try{ localStorage.removeItem('gestinero-pc-envoyes') }catch(e){} // v45 : un fichier peut être renvoyé autant de fois qu'on veut (ancienne liste effacée)
 const MOIS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 const moisTxt=m=>/^\d{4}-\d{2}$/.test(m||'')?MOIS[+m.slice(5)-1]+' '+m.slice(0,4):'';
 function ligne(f){ const d=document.createElement('div'); d.className='f';
@@ -53,12 +50,8 @@ async function suivant(){ if(occupe||!file.length) return; occupe=true;
   while(file.length){ const {f,d}=file.shift(); const bar=d.querySelector('.barre i');
     if(!lien){ etat(d,'⚠️ Pas envoyé : cet ordinateur n\'est plus relié.','ko'); continue }
     try{ etat(d,'Envoi… 0 %'); const bytes=new Uint8Array(await f.arrayBuffer());
-      let h=''; try{ h=GPC.sha256?await GPC.sha256(bytes):'' }catch(e){ h='' }
-      if(h&&!f.forcer&&envoyes().some(x=>x&&x.h===h)){ etat(d,'⚠️ Tu as déjà envoyé ce fichier','ko','Il n\'est pas renvoyé : Gestinéro l\'a déjà reçu depuis cet ordinateur.');
-        const r=document.createElement('button'); r.className='btn g'; r.type='button'; r.textContent='L\'envoyer quand même'; r.style.alignSelf='flex-start';
-        r.onclick=()=>{ r.remove(); f.forcer=true; etat(d,'En attente…'); file.push({f,d}); suivant() }; d.appendChild(r); continue }
       const id=await GPC.envoyer(CFG,lien,{nom:f.name,mime:f.type||'',bytes},p=>{ bar.style.width=Math.round(p*100)+'%'; etat(d,'Envoi… '+Math.round(p*100)+' %') });
-      bar.style.width='100%'; if(h) noterEnvoye(h); etat(d,'✅ Envoyé à ton téléphone','ok','Il arrive dans Gestinéro dès que l\'appli est ouverte sur ton téléphone.'); let rid=''; try{ rid=GPC.idRetour?await GPC.idRetour(id):'' }catch(e){} attendus.set(id,{d,rid,arrive:0}); suivre() }
+      bar.style.width='100%'; etat(d,'✅ Envoyé à ton téléphone','ok','Il arrive dans Gestinéro dès que l\'appli est ouverte sur ton téléphone.'); let rid=''; try{ rid=GPC.idRetour?await GPC.idRetour(id):'' }catch(e){} attendus.set(id,{d,rid,arrive:0}); suivre() }
     catch(e){ bar.style.width='0';
       if(e&&e.raison==='canal'){ etat(d,'⚠️ Pas envoyé : ton téléphone n\'est plus relié.','ko'); file.length=0; occupe=false; delieIci('Ton téléphone n\'est plus relié à cet ordinateur. Pour envoyer de nouveau des fichiers, crée un nouveau code sur ton téléphone.'); return }
       const t=e&&e.raison==='plein'?'Il y a déjà beaucoup de fichiers en attente : ouvre Gestinéro sur ton téléphone pour les recevoir, puis réessaie.':e&&e.raison==='relais'?'Le service est très chargé en ce moment. Réessaie plus tard.':reseau(e)?'Vérifie ta connexion internet, puis réessaie.':'Le service ne répond pas pour le moment. Réessaie dans quelques minutes.';
