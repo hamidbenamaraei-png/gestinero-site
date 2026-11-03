@@ -76,6 +76,19 @@ async function recevoir(cfg,lien,x){ // x : {fichier,total,info} venu de pc_list
   const bytes=new Uint8Array(n0); let o=0; for(const u of parts){ bytes.set(u,o); o+=u.length }
   return {nom:String(meta.nom||'document'),mime:String(meta.mime||''),bytes} }
 
-const GPC={ALPHA,LONG,TOURS,MORCEAU,MAX,nouveauCode,normaliser,joli,deriver,importer,chiffrer,dechiffrer,chiffrerTexte,dechiffrerTexte,pret,rpc,envoyer,recevoir,b64e,b64d};
+// ---------- v43 : réponse du téléphone pour un fichier reçu (où il est rangé, ou « déjà là »), sur le même canal, chiffrée ----------
+// C'est un petit « fichier » du relais (mêmes fonctions, rien à changer côté Supabase) dont le numéro se calcule à partir de celui du
+// fichier envoyé : l'ordinateur sait où le chercher, le téléphone le reconnaît (info chiffrée {retour:1}) et ne le range jamais.
+const sha256=async bytes=>hex(new Uint8Array(await sub().digest('SHA-256',bytes)));
+const idRetour=async id=>(await sha256(te.encode('retour|'+id))).slice(0,32);
+async function envoyerRetour(cfg,lien,id,res){ const rid=await idRetour(id);
+  const info=await chiffrerTexte(lien.cle,JSON.stringify({retour:1,pour:id}),rid+'|info');
+  const r=await rpc(cfg,'pc_envoyer',{p_canal:lien.canal,p_fichier:rid,p_n:0,p_total:1,p_info:info,p_donnees:await chiffrer(lien.cle,te.encode(JSON.stringify(res||{})),rid+'|0|1')},30000);
+  return !!(r&&r.ok) }
+async function estRetour(lien,x){ try{ const m=JSON.parse(await dechiffrerTexte(lien.cle,x.info,x.fichier+'|info')); return m&&m.retour?m:null }catch(e){ return null } }
+async function lireRetour(cfg,lien,rid){ const b=await rpc(cfg,'pc_morceau',{p_canal:lien.canal,p_fichier:rid,p_n:0}); if(typeof b!=='string'||!b) return null;
+  try{ return JSON.parse(td.decode(await dechiffrer(lien.cle,b,rid+'|0|1'))) }catch(e){ return null } }
+
+const GPC={ALPHA,LONG,TOURS,MORCEAU,MAX,nouveauCode,normaliser,joli,deriver,importer,chiffrer,dechiffrer,chiffrerTexte,dechiffrerTexte,pret,rpc,envoyer,recevoir,b64e,b64d,sha256,idRetour,envoyerRetour,estRetour,lireRetour};
 racine.GPC=GPC; if(typeof module!=='undefined'&&module.exports) module.exports=GPC;
 })(typeof window!=='undefined'?window:globalThis);
