@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Relier mon logiciel de facturation – Gestinéro</title>
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+.lg{display:grid;gap:18px;margin-top:22px}
+.lg .carte h3{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tag{font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px}
+.tag.ok{background:#e6f4ea;color:#1e7a34}
+.tag.exp{background:#fff1e6;color:#b4520f}
+.carte ol{margin:10px 0 0;padding-left:22px;color:#33324d;font-size:15px}
+.carte ol li{margin-bottom:4px}
+.carte .lien{display:inline-block;margin-top:12px;font-weight:700}
+.note{background:#fff8f2;border:1px solid #f6d9c2;border-radius:14px;padding:14px 16px;font-size:15px;color:#5a3a20;margin-top:22px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="logo" href="./"><img src="icone.png" alt="">Gestinéro</a></div></header>
+<div class="wrap"><div class="doc">
+<h1>Relier mon logiciel de facturation</h1>
+<p>Gestinéro prépare chaque mois le récapitulatif de tes prestations, client par client. Ensuite, c'est <b>ton logiciel de facturation électronique</b> qui crée la vraie facture. Choisis ton logiciel ci-dessous pour savoir comment faire.</p>
+
+<div class="lg">
+
+<div class="carte">
+<h3>🔗 Henrri <span class="tag ok">Connexion directe</span></h3>
+<p>Gestinéro crée la facture <b>en brouillon</b> dans ton compte Henrri. Tu la vérifies, la valides et l'envoies depuis Henrri.</p>
+<a class="lien" href="guides/henrri.html">📖 Voir le guide pas à pas (avec images) →</a>
+</div>
+
+<div class="carte">
+<h3>🔗 Abby <span class="tag ok">Connexion directe</span></h3>
+<p>Gestinéro crée la facture <b>en brouillon</b> dans ton compte Abby.</p>
+<ol>
+<li>Dans Abby (sur ordinateur) : « Paramètres » › « Intégrations » › crée une <b>clé API</b>. Copie-la tout de suite : Abby ne la remontre plus.</li>
+<li>Dans Gestinéro : onglet <b>Facturation</b> › carte « Mon logiciel de facturation » › choisis <b>Abby</b>.</li>
+<li>Colle ta clé, puis touche <b>« Connecter et tester »</b>.</li>
+<li>Touche <b>« Associer mes clients »</b> et choisis, pour chaque client de Gestinéro, le même client dans Abby.</li>
+<li>Dans un récapitulatif enregistré, touche <b>« Envoyer dans Abby (brouillon) »</b>.</li>
+</ol>
+</div>
+
+<div class="carte">
+<h3>🔗 Qonto <span class="tag ok">Connexion directe</span></h3>
+<p>Gestinéro crée la facture <b>en brouillon</b> dans ton compte Qonto.</p>
+<ol>
+<li>Dans Qonto (sur ordinateur) : « Intégrations et partenariats » › <b>« Clé API »</b>. Copie l'identifiant et la clé secrète.</li>
+<li>Dans Gestinéro : onglet <b>Facturation</b> › carte « Mon logiciel de facturation » › choisis <b>Qonto</b>.</li>
+<li>Colle l'identifiant et la clé secrète, puis touche <b>« Connecter et tester »</b>.</li>
+<li>Touche <b>« Associer mes clients »</b> et choisis, pour chaque client de Gestinéro, le même client dans Qonto.</li>
+<li>Dans un récapitulatif enregistré, touche <b>« Envoyer dans Qonto (brouillon) »</b>.</li>
+</ol>
+</div>
+
+<div class="carte">
+<h3>📤 Autres logiciels <span class="tag exp">Export</span></h3>
+<p>Pennylane, Tiime, Evoliz, Axonaut, Indy, Sellsy, Shine… La connexion directe n'est pas encore possible : on y travaille avec chaque éditeur. En attendant :</p>
+<ol>
+<li>Dans Gestinéro : onglet <b>Facturation</b> › carte « Mon logiciel de facturation » › choisis ton logiciel.</li>
+<li>Ouvre un récapitulatif enregistré et touche <b>« 📤 Exporter pour mon logiciel »</b>.</li>
+<li>Tu obtiens un fichier avec les prestations, les durées, les montants et le client : reprends-le dans ton logiciel pour créer la facture.</li>
+</ol>
+</div>
+
+</div>
+
+<div class="note">🔒 Tes clés restent <b>uniquement sur ton téléphone</b>. Gestinéro ne termine jamais une facture et ne l'envoie jamais à ton client : c'est toujours toi qui valides, depuis ton logiciel.</div>
+
+<p class="maj">Une question ? <a href="mailto:contact@gestinero.fr">contact@gestinero.fr</a></p>
+<p><a href="./">← Retour à l'accueil</a></p>
+</div></div>
+</body>
+</html>
