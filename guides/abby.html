@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Relier Gestinéro à Abby – Gestinéro</title>
+<link rel="icon" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<style>
+.doc ol.et{counter-reset:s;list-style:none;padding:0;margin:0}
+.doc ol.et>li{counter-increment:s;position:relative;padding-left:44px;margin:14px 0}
+.doc ol.et>li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:#ee6a1f;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+figure{margin:12px 0 20px;text-align:center}
+figure img{max-width:340px;width:100%;border:1px solid #e3e2ef;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+figcaption{font-size:14px;color:#5c5b75;margin-top:6px}
+.warn{background:#fff8f2;border:1px solid #f6d9c2;border-radius:14px;padding:14px 16px;font-size:15px;color:#5a3a20;margin:16px 0}
+.flux{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:15px;margin:10px 0 6px}
+.flux span{background:#f4f4f9;border:1px solid #e3e2ef;border-radius:12px;padding:8px 12px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="logo" href="../"><img src="../icone.png" alt="">Gestinéro</a></div></header>
+<div class="wrap"><div class="doc">
+<h1>Relier Gestinéro à Abby</h1>
+<p>Le guide pas à pas, avec des captures d'écran.</p>
+
+<div class="flux"><span>📱 Gestinéro prépare le récapitulatif du mois</span>→<span>🧾 Il l'envoie dans Abby, en brouillon</span>→<span>✅ Tu vérifies, tu finalises et tu envoies depuis Abby</span></div>
+<p>Gestinéro ne finalise jamais la facture et ne l'envoie jamais à ton client. C'est toujours toi qui le fais, depuis Abby.</p>
+
+<h2>Ce qu'il te faut</h2>
+<ul>
+<li>Un compte <b>Abby</b> (tu peux déjà te connecter sur le site d'Abby).</li>
+<li>Tes clients déjà créés dans Abby.</li>
+<li>Gestinéro installé sur ton téléphone.</li>
+<li>Un ordinateur, c'est plus simple pour l'étape 1.</li>
+</ul>
+
+<h2>1. Dans Abby : créer ta clé</h2>
+<p>Une <b>clé API</b>, c'est comme une clé de maison que tu donnes à Gestinéro : elle lui permet de déposer tes brouillons de factures dans ton compte Abby.</p>
+<ol class="et">
+<li>Connecte-toi à Abby. Dans le menu à gauche, clique sur <b>« Paramètres »</b>, puis sur <b>« Intégrations »</b>.
+<figure><img src="img/abby-1-menu.jpg" alt="Menu d'Abby avec Paramètres entouré en rouge"><figcaption>Le menu d'Abby : « Paramètres » en bas.</figcaption></figure></li>
+<li>Dans la partie <b>« Clés API »</b>, clique sur <b>« Ajouter une clé »</b>.
+<figure><img src="img/abby-2-ajouter.jpg" alt="Bouton Ajouter une clé"><figcaption>Le bouton « Ajouter une clé ».</figcaption></figure></li>
+<li>Pour le nom, écris <b>Gestinero</b>, puis clique sur <b>« Créer »</b>.
+<figure><img src="img/abby-3-nom.jpg" alt="Nom de la clé : Gestinero, bouton Créer"><figcaption>Le nom de la clé, puis « Créer ».</figcaption></figure></li>
+<li>Abby affiche ta <b>clé secrète</b>. Copie-la tout de suite (clic droit › Copier) et garde-la dans un endroit sûr.
+<figure><img src="img/abby-4-secret.jpg" alt="Clé secrète affichée une seule fois (cachée sur l'image)"><figcaption>La clé est cachée ici : ne montre jamais ta vraie clé.</figcaption></figure></li>
+</ol>
+<div class="warn">⚠️ Abby n'affiche la clé <b>qu'une seule fois</b>. Si tu la perds, clique sur « Révoquer » et crée-en une nouvelle.<br>⚠️ Ne l'envoie jamais à personne : ni par message, ni par e-mail, ni à l'assistance.</div>
+<figure><img src="img/abby-5-cle.jpg" alt="La clé Gestinero dans la liste des clés API"><figcaption>Ta clé « Gestinero » apparaît ensuite dans la liste.</figcaption></figure>
+
+<h2>2. Dans Gestinéro : coller ta clé</h2>
+<ol class="et">
+<li>En bas de l'écran, touche <b>« Facturation »</b>.</li>
+<li>Dans la carte <b>« Mon logiciel de facturation »</b>, choisis <b>Abby</b>.</li>
+<li>Colle ta clé dans la case, puis touche <b>« Connecter et tester »</b>. Le message « Abby connecté ✓ » s'affiche.</li>
+<li>Touche <b>« Associer mes clients »</b> : pour chaque client de Gestinéro, choisis le même client dans Abby.</li>
+</ol>
+
+<h2>3. Envoyer un récapitulatif dans Abby</h2>
+<ol class="et">
+<li>Dans Facturation, ouvre un récapitulatif <b>enregistré</b> et touche <b>« 📤 Envoyer dans Abby (brouillon) »</b>.</li>
+<li>Dans Abby : menu <b>Facturation › Factures</b>. Ta facture est là, avec l'état <b>« Brouillon »</b>.
+<figure><img src="img/abby-6-liste.jpg" alt="La facture brouillon dans la liste des factures Abby"><figcaption>La facture envoyée par Gestinéro, en brouillon.</figcaption></figure></li>
+<li>Ouvre-la et vérifie tout : le client, les lignes, le total.</li>
+<li>Avec le bouton <b>« … »</b> en haut à droite, choisis <b>« Finaliser »</b>, puis envoie-la à ton client.
+<figure><img src="img/abby-7-finaliser.jpg" alt="Menu avec Finaliser et Finaliser et envoyer"><figcaption>« Finaliser », ou « Finaliser et envoyer ».</figcaption></figure></li>
+</ol>
+
+<h2>Ça ne marche pas ?</h2>
+<ul>
+<li><b>La clé est refusée</b> : vérifie qu'elle est copiée en entier, sans espace avant ou après. Sinon, crée une nouvelle clé.</li>
+<li><b>« Client à associer »</b> : touche « Associer mes clients » dans Gestinéro et choisis le bon client Abby.</li>
+<li><b>Rien n'arrive dans Abby</b> : vérifie Internet sur ton téléphone, puis réessaie.</li>
+</ul>
+
+<p class="maj">Une question ? <a href="mailto:contact@gestinero.fr">contact@gestinero.fr</a> (sans jamais envoyer ta clé).</p>
+<p><a href="../logiciels.html">← Tous les logiciels de facturation</a></p>
+</div></div>
+</body>
+</html>
