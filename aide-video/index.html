@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="googlebot" content="noindex,nofollow">
+<title>Tutoriels Gestinéro</title>
+<style>
+:root{--bg:#F6F4F0;--card:#fff;--ink:#1E1F2B;--mute:#62647A;--or:#F27A1A;--or2:#D9600C;--soft:#FFEBD9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.45}
+header{background:linear-gradient(160deg,#2B2C38,#15161D);color:#fff;padding:28px 16px 30px;text-align:center}
+header h1{margin:0;font-size:26px}
+header p{margin:8px auto 0;max-width:520px;color:#D8D9E3;font-size:15px}
+main{max-width:980px;margin:0 auto;padding:12px 16px 40px}
+.onglets{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:18px 0 6px}
+.onglets a{padding:9px 16px;border-radius:999px;background:var(--soft);color:#A84A06;font-weight:700;text-decoration:none;font-size:15px}
+h2{margin:28px 0 12px;font-size:21px}
+.grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.v{background:var(--card);border-radius:18px;padding:10px;box-shadow:0 6px 18px rgba(30,31,43,.08)}
+.v video{width:100%;aspect-ratio:9/16;border-radius:12px;background:#000;display:block}
+.v b{display:block;margin:8px 4px 2px;font-size:15px}
+.v span{display:block;margin:0 4px 4px;color:var(--mute);font-size:13px}
+.v.essentiel{border:2px solid var(--or)}
+footer{text-align:center;color:var(--mute);font-size:13px;padding:0 16px 30px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Tutoriels Gestinéro</h1>
+  <p>Des petites vidéos pour bien utiliser l'appli. Commence par « L'essentiel » de ton profil.</p>
+</header>
+<main>
+  <nav class="onglets"><a href="#salaries">Salariés</a><a href="#independants">Indépendants au réel</a><a href="#auto">Auto-entrepreneurs</a></nav>
+
+  <h2 id="salaries">Salariés</h2>
+  <div class="grille">
+    <div class="v essentiel" id="salaries-essentiel"><video src="salaries-essentiel.mp4" controls preload="metadata" playsinline></video><b>L'essentiel</b><span>48 s</span></div>
+    <div class="v" id="salaries-frais-reels"><video src="salaries-frais-reels.mp4" controls preload="metadata" playsinline></video><b>Les frais réels</b><span>24 s</span></div>
+    <div class="v" id="salaries-depense"><video src="salaries-depense.mp4" controls preload="metadata" playsinline></video><b>Ajouter une dépense</b><span>15 s</span></div>
+    <div class="v" id="salaries-trajet"><video src="salaries-trajet.mp4" controls preload="metadata" playsinline></video><b>Corriger un trajet</b><span>15 s</span></div>
+    <div class="v" id="salaries-vacances"><video src="salaries-vacances.mp4" controls preload="metadata" playsinline></video><b>Horaires et vacances</b><span>10 s</span></div>
+  </div>
+
+  <h2 id="independants">Indépendants au réel</h2>
+  <div class="grille">
+    <div class="v essentiel" id="independants-essentiel"><video src="independants-essentiel.mp4" controls preload="metadata" playsinline></video><b>L'essentiel</b><span>47 s</span></div>
+    <div class="v" id="independants-ik"><video src="independants-ik.mp4" controls preload="metadata" playsinline></video><b>Les indemnités km</b><span>23 s</span></div>
+    <div class="v" id="independants-recaps"><video src="independants-recaps.mp4" controls preload="metadata" playsinline></video><b>Les récapitulatifs</b><span>23 s</span></div>
+    <div class="v" id="independants-clients"><video src="independants-clients.mp4" controls preload="metadata" playsinline></video><b>Mes clients</b><span>19 s</span></div>
+  </div>
+
+  <h2 id="auto">Auto-entrepreneurs</h2>
+  <div class="grille">
+    <div class="v essentiel" id="auto-essentiel"><video src="auto-essentiel.mp4" controls preload="metadata" playsinline></video><b>L'essentiel</b><span>44 s</span></div>
+    <div class="v" id="auto-recaps"><video src="auto-recaps.mp4" controls preload="metadata" playsinline></video><b>Les récapitulatifs</b><span>19 s</span></div>
+    <div class="v" id="auto-km"><video src="auto-km.mp4" controls preload="metadata" playsinline></video><b>Les kilomètres</b><span>15 s</span></div>
+    <div class="v" id="auto-comptes"><video src="auto-comptes.mp4" controls preload="metadata" playsinline></video><b>Mes comptes</b><span>11 s</span></div>
+  </div>
+</main>
+<footer>Gestinéro · les personnes et les chiffres des vidéos sont des exemples.</footer>
+</body>
+</html>
