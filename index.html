@@ -259,6 +259,33 @@ footer { background: var(--asphalte); color: #a9a1b3; font-size: 14px; }
 footer .enveloppe { display: flex; flex-wrap: wrap; gap: 14px 28px; justify-content: space-between; padding-block: 28px; }
 footer a { color: #d9d3e0; }
 
+/* ---------- pré-inscription : compte à rebours jusqu'au 1er janvier 2027 + formulaire ---------- */
+.preinscription { background: var(--asphalte-2); color: var(--marquage); padding-block: 56px; }
+.preinscription .enveloppe { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.preinscription .enveloppe > * { min-width: 0; }
+@media (max-width: 860px) { .preinscription .enveloppe { grid-template-columns: 1fr; gap: 28px; } }
+.preinscription h2 { margin-top: 10px; }
+.preinscription .chapo { color: #cfc8d8; margin-top: 12px; font-size: 17px; max-width: 30em; }
+.rebours { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 24px; max-width: 440px; }
+.rebours div { background: var(--asphalte); border: 1px solid #3a3542; border-radius: 16px; padding: 12px 6px; text-align: center; }
+.rebours b { display: block; font-family: var(--f-titre); font-size: clamp(26px, 4vw, 38px); font-weight: 900; font-variant-numeric: tabular-nums; color: var(--or-clair); line-height: 1.1; }
+.rebours span { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #a9a1b3; }
+.interesses { margin-top: 18px; font-size: 15px; color: #cfc8d8; }
+.interesses b { color: #fff; font-family: var(--f-titre); font-size: 20px; }
+.form-pre { background: var(--carte); color: var(--encre); border-radius: 22px; padding: 24px; display: grid; gap: 14px; box-shadow: 0 24px 50px rgba(0,0,0,.35); }
+.form-pre h3 { font-size: 20px; font-weight: 800; }
+.form-pre label { display: grid; gap: 6px; font-weight: 700; font-size: 14px; }
+.form-pre input[type=text], .form-pre input[type=email], .form-pre select { font: inherit; font-weight: 500; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--trait); background: var(--fond); color: var(--encre); width: 100%; }
+.form-pre input:focus-visible, .form-pre select:focus-visible, .form-pre button:focus-visible { outline: 2px solid var(--or); outline-offset: 2px; }
+.form-pre label.case { display: flex; gap: 10px; align-items: flex-start; font-weight: 500; font-size: 14px; color: var(--doux); }
+.form-pre .case input { width: 20px; height: 20px; margin-top: 1px; flex: none; accent-color: var(--or); }
+.form-pre button { font: inherit; font-weight: 800; font-size: 16px; border: 0; border-radius: 12px; padding: 14px; cursor: pointer; color: #fff; background: linear-gradient(100deg, var(--aube-1), var(--aube-2)); }
+.form-pre button[disabled] { opacity: .6; cursor: wait; }
+.form-pre .message { font-size: 14px; font-weight: 700; min-height: 1.2em; }
+.form-pre .message.ok { color: #1f9d5b; }
+.form-pre .message.erreur { color: #c0392b; }
+.form-pre .petit { font-size: 12px; color: var(--doux); }
+.form-pre .petit a { color: inherit; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
 
@@ -289,7 +316,7 @@ footer a { color: #d9d3e0; }
       <div class="profil-texte" id="texte-independant" hidden><b>Tes récapitulatifs de facture, prêts tout seuls.</b> Chaque passage chez un client est noté. En fin de mois, le récapitulatif de chaque client est prêt pour ton logiciel de facturation électronique.</div>
       <div class="actions">
         <span class="gplay bientot" aria-label="Bientôt sur Google Play"><svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true"><path d="M1 1l14 13L1 27z" fill="#00d7fe"/><path d="M1 1l18 10-4 3z" fill="#00f076"/><path d="M1 27l18-10-4-3z" fill="#ff3a44"/><path d="M19 11l6 3-6 3-4-3z" fill="#ffd400"/></svg><span><small>Bientôt sur</small><b>Google Play</b></span></span>
-        <a class="prevenir" href="mailto:contact@gestinero.fr?subject=Gestin%C3%A9ro%20%E2%80%93%20pr%C3%A9venez-moi%20du%20lancement">Être prévenu du lancement</a>
+        <a class="prevenir" href="#preinscription">Être prévenu du lancement</a>
         <button type="button" class="offert" data-confettis>1er mois offert au lancement</button>
       </div>
       <div class="compteur" id="compteur-salarie" aria-label="Exemple pour un salarié">
@@ -317,6 +344,33 @@ footer a { color: #d9d3e0; }
     </div>
   </div>
 </div>
+
+<section class="preinscription" id="preinscription">
+  <div class="enveloppe">
+    <div>
+      <div class="etiquette">Sortie le 1er janvier 2027</div>
+      <h2>Sois prévenu dès la sortie.</h2>
+      <p class="chapo">Laisse ton prénom et ton e-mail : on t'écrit le jour J, avec ton premier mois offert. C'est gratuit et sans engagement.</p>
+      <div class="rebours" id="rebours" aria-label="Temps avant la sortie">
+        <div><b id="r-j">–</b><span>jours</span></div>
+        <div><b id="r-h">–</b><span>heures</span></div>
+        <div><b id="r-m">–</b><span>minutes</span></div>
+        <div><b id="r-s">–</b><span>secondes</span></div>
+      </div>
+      <p class="interesses" id="interesses" hidden><b id="nb-inscrits">0</b> personnes déjà intéressées</p>
+    </div>
+    <form class="form-pre" id="form-pre" novalidate>
+      <h3>Je suis intéressé</h3>
+      <label for="pre-prenom">Prénom<input type="text" id="pre-prenom" name="prenom" autocomplete="given-name" maxlength="60" required></label>
+      <label for="pre-email">E-mail<input type="email" id="pre-email" name="email" autocomplete="email" maxlength="200" required></label>
+      <label for="pre-profil">Je suis…<select id="pre-profil" name="profil"><option value="">(facultatif)</option><option value="salarie">Salarié</option><option value="auto">Auto-entrepreneur</option><option value="independant">Indépendant au réel</option><option value="autre">Autre</option></select></label>
+      <label class="case" for="pre-accord"><input type="checkbox" id="pre-accord" name="accord" required><span>J'accepte de recevoir les e-mails de Gestinéro sur la sortie de l'appli. Je peux me désinscrire à tout moment.</span></label>
+      <button type="submit" id="pre-envoyer">Me prévenir de la sortie</button>
+      <p class="message" id="pre-message" role="status"></p>
+      <p class="petit">Ton e-mail sert uniquement à te prévenir de la sortie. <a href="confidentialite.html">Confidentialité</a> · Une question ? <a href="mailto:contact@gestinero.fr">contact@gestinero.fr</a></p>
+    </form>
+  </div>
+</section>
 
 <section id="salaries">
   <div class="enveloppe">
@@ -438,7 +492,7 @@ footer a { color: #d9d3e0; }
     <p>Salarié ou indépendant : tes kilomètres, tes frais réels et tes récapitulatifs de facture, prêts tout seuls. Le premier mois sera offert au lancement.</p>
     <div class="actions" style="margin-top:26px">
       <span class="gplay bientot" aria-label="Bientôt sur Google Play"><svg width="26" height="28" viewBox="0 0 26 28" aria-hidden="true"><path d="M1 1l14 13L1 27z" fill="#00d7fe"/><path d="M1 1l18 10-4 3z" fill="#00f076"/><path d="M1 27l18-10-4-3z" fill="#ff3a44"/><path d="M19 11l6 3-6 3-4-3z" fill="#ffd400"/></svg><span><small>Bientôt sur</small><b>Google Play</b></span></span>
-        <a class="prevenir" href="mailto:contact@gestinero.fr?subject=Gestin%C3%A9ro%20%E2%80%93%20pr%C3%A9venez-moi%20du%20lancement">Être prévenu du lancement</a>
+        <a class="prevenir" href="#preinscription">Être prévenu du lancement</a>
       <button type="button" class="offert" data-confettis>1er mois offert au lancement</button>
     </div>
   </div>
@@ -623,5 +677,50 @@ footer a { color: #d9d3e0; }
 })();
 </script>
 
+<script>
+(function () {
+  // --- pré-inscription (Supabase, projet gestinero-pc : la table est fermée, le site peut seulement ajouter et compter) ---
+  var URL = 'https://zcbhnmqykfxzlgxbubgi.supabase.co/rest/v1/rpc/', CLE = 'sb_publishable_4_D2HnqgFolxoI002UJ-BQ_4nQAj2HF';
+  var appel = function (f, corps) {
+    return fetch(URL + f, { method: 'POST', headers: { apikey: CLE, 'Content-Type': 'application/json' }, body: JSON.stringify(corps || {}) })
+      .then(function (r) { if (!r.ok) throw new Error('http ' + r.status); return r.json(); });
+  };
+  var montrerNb = function (n) {
+    n = parseInt(n, 10) || 0;
+    if (n < 3) return;   // le compteur s'affiche à partir de 3 inscrits
+    document.getElementById('nb-inscrits').textContent = n.toLocaleString('fr-FR');
+    document.getElementById('interesses').hidden = false;
+  };
+  appel('nb_preinscrits').then(montrerNb).catch(function () {});
+
+  var f = document.getElementById('form-pre'), msg = document.getElementById('pre-message'), bt = document.getElementById('pre-envoyer');
+  var dire = function (t, ok) { msg.textContent = t; msg.className = 'message ' + (ok ? 'ok' : 'erreur'); };
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var prenom = f.prenom.value.trim(), email = f.email.value.trim();
+    if (!prenom) { dire('Écris ton prénom.'); f.prenom.focus(); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { dire('Cette adresse e-mail ne semble pas complète.'); f.email.focus(); return; }
+    if (!f.accord.checked) { dire('Coche la case pour accepter de recevoir l’e-mail de sortie.'); f.accord.focus(); return; }
+    bt.disabled = true; dire('Envoi…', true);
+    appel('preinscrire', { p_prenom: prenom, p_email: email, p_profil: f.profil.value, p_accord: true })
+      .then(function (n) { f.reset(); dire('C’est noté, ' + prenom + ' ! On te prévient dès la sortie.', true); montrerNb(n); })
+      .catch(function () { dire('L’envoi n’a pas marché. Réessaie dans un moment, ou écris à contact@gestinero.fr.'); })
+      .then(function () { bt.disabled = false; });
+  });
+
+  // --- compte à rebours jusqu'au 1er janvier 2027, minuit (heure de Paris) ---
+  var fin = Date.parse('2027-01-01T00:00:00+01:00');
+  var deux = function (n) { return (n < 10 ? '0' : '') + n; };
+  var el = { j: document.getElementById('r-j'), h: document.getElementById('r-h'), m: document.getElementById('r-m'), s: document.getElementById('r-s') };
+  var tic = function () {
+    var t = Math.max(0, Math.floor((fin - Date.now()) / 1000));
+    el.j.textContent = Math.floor(t / 86400); el.h.textContent = deux(Math.floor(t % 86400 / 3600));
+    el.m.textContent = deux(Math.floor(t % 3600 / 60)); el.s.textContent = deux(t % 60);
+    if (t === 0) { document.querySelector('#preinscription .etiquette').textContent = 'Gestinéro est sorti !'; return; }
+    setTimeout(tic, 1000 - Date.now() % 1000);
+  };
+  tic();
+})();
+</script>
 </body>
 </html>
